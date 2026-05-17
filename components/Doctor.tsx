@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { doctor, clinic } from "@/lib/data";
 import { Reveal } from "./ui/Reveal";
 import { Button } from "./ui/Button";
@@ -6,6 +7,17 @@ export function Doctor() {
   return (
     <section id="dr-deli" className="section bg-sand">
       <div className="wrap">
+        <Reveal className="mb-5">
+          <figure className="group relative aspect-[2/1] overflow-hidden border border-line">
+            <Image
+              src="/images/extra-2.png"
+              alt="Atendimento de tricologia no instituto SmileSkin."
+              fill
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              className="object-cover transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.04]"
+            />
+          </figure>
+        </Reveal>
         <Reveal>
           <div className="grid border border-line lg:grid-cols-[0.82fr_1.18fr]">
             {/* Identidade */}

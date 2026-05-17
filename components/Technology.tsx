@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { technologies } from "@/lib/data";
 import { SectionHeading } from "./ui/SectionHeading";
 import { Reveal } from "./ui/Reveal";
@@ -15,7 +16,19 @@ export function Technology() {
           lede="A tecnologia não substitui o raciocínio clínico, ela o sustenta. Cada recurso é usado conforme a leitura do seu caso, nunca como pacote padrão."
         />
 
-        <div className="mt-16 grid border-t border-line md:grid-cols-2">
+        <Reveal className="mt-14">
+          <figure className="group relative aspect-[21/9] overflow-hidden border border-line">
+            <Image
+              src="/images/extra-4.png"
+              alt="Recursos e tecnologia aplicados na avaliação capilar da SmileSkin."
+              fill
+              sizes="(max-width: 1200px) 100vw, 1120px"
+              className="object-cover transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.04]"
+            />
+          </figure>
+        </Reveal>
+
+        <div className="mt-5 grid border-t border-line md:grid-cols-2">
           {technologies.map((tech, i) => (
             <Reveal key={tech.name} delay={(i % 2) * 0.08}>
               <article

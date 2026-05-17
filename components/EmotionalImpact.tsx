@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { emotionalPoints } from "@/lib/data";
 import { Reveal } from "./ui/Reveal";
 
@@ -16,7 +17,19 @@ export function EmotionalImpact() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-px border border-paper/15 bg-paper/15 md:grid-cols-2">
+        <Reveal className="mt-14">
+          <figure className="group relative aspect-[2/1] overflow-hidden border border-paper/15">
+            <Image
+              src="/images/extra-3.png"
+              alt="O cuidado humano por trás do tratamento capilar na SmileSkin."
+              fill
+              sizes="(max-width: 1200px) 100vw, 1120px"
+              className="object-cover transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.04]"
+            />
+          </figure>
+        </Reveal>
+
+        <div className="mt-5 grid gap-px border border-paper/15 bg-paper/15 md:grid-cols-2">
           {emotionalPoints.map((point, i) => (
             <Reveal key={point} delay={i * 0.1}>
               <div className="h-full bg-ink p-9 lg:p-11">

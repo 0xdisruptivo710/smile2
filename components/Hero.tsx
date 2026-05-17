@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import {
   motion,
   useReducedMotion,
@@ -199,6 +200,27 @@ export function Hero() {
             </li>
           ))}
         </motion.ul>
+
+        <motion.figure
+          initial={reduce ? { opacity: 0 } : { opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease, delay: 1.1 }}
+          className="group relative mt-6 aspect-[16/9] overflow-hidden border border-line"
+        >
+          <Image
+            src="/images/extra-1.png"
+            alt="Ambiente do instituto de tricologia SmileSkin, em Moema."
+            fill
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            className="object-cover transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.04]"
+          />
+          <figcaption className="absolute bottom-4 left-4 flex items-center gap-2.5 bg-paper/90 px-3.5 py-2 backdrop-blur-sm">
+            <span aria-hidden className="h-1.5 w-1.5 bg-gold" />
+            <span className="mono text-xs uppercase tracking-[0.16em] text-ink">
+              Instituto SmileSkin · Moema
+            </span>
+          </figcaption>
+        </motion.figure>
       </div>
     </section>
   );
