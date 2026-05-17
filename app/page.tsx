@@ -7,6 +7,8 @@ import { Causes } from "@/components/Causes";
 import { OrnamentalDivider } from "@/components/OrnamentalDivider";
 import { Investigation } from "@/components/Investigation";
 import { Technology } from "@/components/Technology";
+import { HairCycle } from "@/components/HairCycle";
+import { Tricoscopy } from "@/components/Tricoscopy";
 import { VideoShowcase } from "@/components/VideoShowcase";
 import { EmotionalImpact } from "@/components/EmotionalImpact";
 import { Protocols } from "@/components/Protocols";
@@ -34,6 +36,8 @@ export default function Home() {
         <OrnamentalDivider />
         <Investigation />
         <Technology />
+        <HairCycle />
+        <Tricoscopy />
         <VideoShowcase />
         <EmotionalImpact />
         <Protocols />
