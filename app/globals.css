@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme {
+  /* Neutros cremosos quentes — DNA SmileSkin */
+  --color-paper: #faf7f2;
+  --color-sand: #f2ebdf;
+  --color-mist: #ece3d2;
+  --color-white: #fdfbf7;
+  --color-line: #e8e0d1;
+  --color-line-strong: #d8cdb4;
+
+  /* Grafite quente — texto e blocos profundos (sem azul) */
+  --color-ink: #1f1f1f;
+  --color-ink-soft: #4c453b;
+  --color-ink-mute: #8a7f70;
+
+  /* Champagne — cor de marca */
+  --color-gold: #efcf88;
+  --color-gold-soft: #f5dfa9;
+  --color-gold-deep: #c9a560;
+
+  --color-signal-err: #b4524a;
+
+  --font-display: var(--font-schibsted), system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-body: var(--font-hanken), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-5xl: 3.875rem;
+  --text-6xl: 5.25rem;
+
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+
+  --shadow-card: 0 18px 40px -28px rgba(31, 28, 24, 0.26);
+  --shadow-lift: 0 28px 60px -30px rgba(31, 28, 24, 0.36);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 92px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink-soft);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold-deep);
+    outline-offset: 2px;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+  .section {
+    padding-block: 88px;
+  }
+  /* Sans pesado — números, rótulos de card, UI */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.022em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+  /* Serif editorial — títulos de seção e hero (DNA: Cormorant) */
+  .serif {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1.06;
+    text-wrap: balance;
+  }
+  .mono {
+    font-family: var(--font-mono);
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .lede {
+    font-size: 1.1875rem;
+    line-height: 1.62;
+    color: var(--color-ink-soft);
+    text-wrap: pretty;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .dot-grid {
+    background-image: radial-gradient(
+      rgba(245, 239, 234, 0.12) 1px,
+      transparent 0
+    );
+    background-size: 26px 26px;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrap {
+    padding-inline: 40px;
+  }
+  .section {
+    padding-block: 120px;
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding-block: 168px;
+  }
+}
+
+@keyframes wa-pulse {
+  0%,
+  86%,
+  100% {
+    transform: scale(1);
+  }
+  91% {
+    transform: scale(1.07);
+  }
+  96% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
